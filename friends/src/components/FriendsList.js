@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Friends from './Friends';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import AddNewFriend from './AddNewFriend';
 import { Link } from 'react-router-dom';
 
 

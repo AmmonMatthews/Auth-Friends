@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
@@ -12,22 +12,8 @@ const AddNewFriend = props => {
         email: ""
     });
     
-    const [friends, setFriends] = useState([]);
     
-    useEffect(() => {
-        axiosWithAuth()
-            .get("/api/friends")
-            .then(res => {
-                console.log(res)
-                setFriends(res.data)
-            })
-            .catch(err => {
-                console.log("unable to grab friends", err)
-            })
-            return () => {
-                return friends
-            }
-    },[])
+    
 
     const handleChanges = e => {
         setNewFriend({...newFriend, [e.target.name]: e.target.value})
@@ -38,11 +24,7 @@ const AddNewFriend = props => {
         e.preventDefault();
         axiosWithAuth()
             .post('/api/friends', newFriend)
-            .then(res => {
-                console.log(res);
-                setFriends({...friends, newFriend})
-            })
-                
+    
             .catch(err => console.log(err))
             props.history.push('/friends')
     }
@@ -54,7 +36,8 @@ const AddNewFriend = props => {
             <input
             id="name"
             name="name"
-            type="test"
+            type="text"
+            placeholder="name"
             value={newFriend.name}
             onChange={handleChanges}
             />
@@ -63,7 +46,8 @@ const AddNewFriend = props => {
             <input
             id="age"
             name="age"
-            type="test"
+            type="text"
+            placeholder="age"
             value={newFriend.age}
             onChange={handleChanges}
             />
@@ -72,7 +56,8 @@ const AddNewFriend = props => {
             <input
             id="email"
             name="email"
-            type="test"
+            type="text"
+            placeholder="email"
             value={newFriend.email}
             onChange={handleChanges}
             />
