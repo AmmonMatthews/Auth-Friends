@@ -4,7 +4,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { Link } from 'react-router-dom';
 
 
-const FriendsList = () => {
+const FriendsList = props => {
     const[friends, setFriends] = useState([]);
 
   useEffect(() =>{
@@ -22,6 +22,9 @@ const FriendsList = () => {
         .catch(err => console.log(err));
   }
 
+  
+
+    console.log(friends)
 
     return(
        
@@ -30,7 +33,7 @@ const FriendsList = () => {
            <Link to="/addfriend">Add Friend</Link>
             
             {friends.map(friend => {
-               return <Friends key={friend.id} friend={friend} />
+               return <Friends key={friend.id} friend={friend} history={props.history}  />
             })}
                 
         </div>
