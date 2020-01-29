@@ -11,9 +11,6 @@ const AddNewFriend = props => {
         age: "", 
         email: ""
     });
-    
-    
-    
 
     const handleChanges = e => {
         setNewFriend({...newFriend, [e.target.name]: e.target.value})

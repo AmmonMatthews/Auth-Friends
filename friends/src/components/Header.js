@@ -14,6 +14,7 @@ const Header = () => {
             <div>
                 <Link to="/friends">Friends List</Link>
             </div>
+                
         </div>
 
     )
