@@ -33,7 +33,10 @@ const FriendsList = props => {
            <Link to="/addfriend">Add Friend</Link>
             
             {friends.map(friend => {
-               return <Friends key={friend.id} friend={friend} history={props.history}  />
+               return <div key={friend.id}>
+                        <Friends  friend={friend} history={props.history}  />
+                        {/* <button onClick={handleDelete}>Delete</button> */}
+                    </div>
             })}
                 
         </div>
